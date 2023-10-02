@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServiceStreamer.Protos";
+
+package GrpcServiceStreamer;
+message PrimeNumber {
+  int64 id = 1;
+  int64 timestamp = 2;
+  int64 number = 3;
+}
+
+message PrimeNumberResponse {
+  bool is_prime = 1;
+  int64 rtt = 2;
+}
+
+service PrimeNoService {
+  rpc CheckPrime(PrimeNumber) returns (PrimeNumberResponse);
+}

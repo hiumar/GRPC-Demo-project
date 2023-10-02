@@ -1,0 +1,18 @@
+syntax = "proto3";
+ option csharp_namespace = "GrpcClient.API";
+package GrpcClient;
+
+message PrimeNumber {
+  int64 Id = 1;
+  int64 Timestamp = 2;
+  int64 Number = 3;
+}
+
+message PrimeNumberResponse {
+  bool IsPrime = 1;
+  int64 Rtt = 2;
+}
+
+service PrimeNoService {
+  rpc CheckPrime(PrimeNumber) returns (PrimeNumberResponse);
+}
